@@ -15,7 +15,7 @@ first.analysis <- function(matrix.element = "Ca", output.filename = "results", s
     library(tcltk)
     files <- tk_choose.files(filters = matrix(c("CSV-Files",".csv"), nrow = 1, ncol = 2)) #choose the files to evaluate. the prompt is not nice, but it works on all systems (I hope)
   } else {
-    files <- choose.files(filters = Filters["csv",])
+    files <- choose.files()
   }
   
   if(length(files) == 0){stop("No files selected")} #error if no file was selected
