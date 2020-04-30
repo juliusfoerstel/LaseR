@@ -4,7 +4,7 @@
 \alias{floatingSD}
 \title{my own floating SD}
 \usage{
-floatingSD(data, l = 6, clear.outliers = FALSE, pad = FALSE)
+floatingSD(data, l = 6, clear.outliers = FALSE, pad = FALSE, iqr = F)
 }
 \arguments{
 \item{data}{vector of data}
@@ -14,6 +14,8 @@ floatingSD(data, l = 6, clear.outliers = FALSE, pad = FALSE)
 \item{clear.outliers}{Boolean}
 
 \item{pad}{boolean whether NA should be added in front and in the back to maintain the same length}
+
+\item{iqr}{boolean whether to use the interquartile range}
 }
 \description{
 This function gives the SD to a floating mean

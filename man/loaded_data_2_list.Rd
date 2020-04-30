@@ -4,18 +4,16 @@
 \alias{loaded_data_2_list}
 \title{Average measurements}
 \usage{
-loaded_data_2_list(data, preablation = T)
+loaded_data_2_list(data)
 }
 \arguments{
 \item{data}{Data input}
-
-\item{preablation}{Boolean if True preablation is discarded}
 }
 \description{
-This function averages the measurements and returns a list of average values and standard deviations.
+This function averages the measurements and returns a list of average values and standard deviations. The
 }
 \examples{
-loaded_data_2_list(data = read.csv("results.csv"), preablation = T)
+loaded_data_2_list(data = read.csv("results.csv"))
 }
 \keyword{average,}
 \keyword{mean,}

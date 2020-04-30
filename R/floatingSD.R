@@ -5,12 +5,13 @@
 #' @param l number of points to be averaged
 #' @param clear.outliers Boolean
 #' @param pad boolean whether NA should be added in front and in the back to maintain the same length
+#' @param iqr boolean whether to use the interquartile range
 #' @keywords sd
 #' @keywords floating
 #' @export
 #'
 
-floatingSD <- function (data, l = 6 , clear.outliers = FALSE, pad = FALSE){
+floatingSD <- function (data, l = 6 , clear.outliers = FALSE, pad = FALSE, iqr = F){
   out <- c()
   len <- length(data)
   if (clear.outliers) {
@@ -20,8 +21,10 @@ floatingSD <- function (data, l = 6 , clear.outliers = FALSE, pad = FALSE){
     clear.signal <- data
   }
   for(i in 1:len){
-    if(i>l/2 && i <= len-floor(l/2)){
-      out <- c(out,sd(clear.signal[(i-floor(l/2)):(i+ceiling(l/2-1))]))
+    if(i>l/2 && i <= len-floor(l/2) && !iqr){
+      out <- c(out,sd(clear.signal[(i-floor(l/2)):(i+ceiling(l/2-1))], na.rm = T))
+    } else if(i>l/2 && i <= len-floor(l/2) && iqr){
+      out <- c(out,IQR(clear.signal[(i-floor(l/2)):(i+ceiling(l/2-1))], na.rm = T))
     }
   }
   if(pad){

@@ -28,6 +28,9 @@ read.iCAP <- function(pattern = ".csv", files = NA){
     }
     files <- files[order]
   }
+  #read all data files and extract metadata
+  md <- get_MetaData(files = files)
+  
   
   
   data <- read.csv(files[1], header = T, skip = 13, stringsAsFactors = FALSE)
@@ -44,6 +47,7 @@ read.iCAP <- function(pattern = ".csv", files = NA){
     data <- rbind(data,raw.data)
   }
   data$Index <- 1:dim(data)[1] # add a continuous index column
+  data$smpl <- md$name[data$m]
   data <- data[,names(data)!="X"] #delete the empty X column
   return(data)
 }

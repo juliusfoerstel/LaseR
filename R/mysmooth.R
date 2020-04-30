@@ -15,8 +15,7 @@ mySmooth <- function (data, l = 6 , clear.outliers = FALSE, gaussian = TRUE, pad
     if (gaussian) {
       gauss <- dnorm(x = x, mean = 0.5, sd = 0.2)
       gauss <- gauss/sum(gauss)
-    }
-    else {
+    } else {
       gauss <- dunif(x = x, min = 0, max = 1)
       gauss <- gauss/sum(gauss)
     }

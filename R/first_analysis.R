@@ -15,7 +15,7 @@ first.analysis <- function(matrix.element = "Ca", output.filename = "results", s
     library(tcltk)
     files <- tk_choose.files(filters = matrix(c("CSV-Files",".csv"), nrow = 1, ncol = 2)) #choose the files to evaluate. the prompt is not nice, but it works on all systems (I hope)
   } else {
-    files <- choose.files()
+    files <- choose.files(filters = matrix(c("CSV-Files",".csv"), nrow = 1, ncol = 2))
   }
   
   if(length(files) == 0){stop("No files selected")} #error if no file was selected
@@ -24,6 +24,7 @@ first.analysis <- function(matrix.element = "Ca", output.filename = "results", s
   directory <- gsub("\\","/",files[1], fixed = TRUE)
   end <- tail(gregexpr(pattern = "/", text = directory)[[1]],1)
   directory <- substr(x = directory, start = 1, stop = end)
+  
   
   #read all data files and merge them into one big data frame
   data <- read.iCAP(files = files) 
