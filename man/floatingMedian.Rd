@@ -2,8 +2,7 @@
 % Please edit documentation in R/floatingMedian.R
 \name{floatingMedian}
 \alias{floatingMedian}
-\title{my own floating median
-This function gives the floating median with a given number of data points}
+\title{my own floating median}
 \usage{
 floatingMedian(data, l = 6, clear.outliers = FALSE, pad = FALSE)
 }
@@ -17,7 +16,6 @@ floatingMedian(data, l = 6, clear.outliers = FALSE, pad = FALSE)
 \item{pad}{boolean whether NA should be added in front and in the back to maintain the same length}
 }
 \description{
-my own floating median
 This function gives the floating median with a given number of data points
 }
 \keyword{floating}
